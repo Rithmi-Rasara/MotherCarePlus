@@ -15,6 +15,21 @@
         android:theme="@style/Theme.MotherCare"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".PatientsListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ScheduleVisitActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HealthRecordsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MidwifeProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MotherRegistrationActivity"
+            android:exported="false" />
+        <activity
             android:name=".MotherDashboardActivity"
             android:exported="false" />
         <activity

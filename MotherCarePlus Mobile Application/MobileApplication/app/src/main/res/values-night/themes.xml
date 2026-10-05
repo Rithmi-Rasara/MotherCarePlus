@@ -1,16 +1,21 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.MotherCare" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+    <!-- MotherCare+ Night Theme (force light for medical clarity) -->
+    <style name="Theme.MotherCare" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/mothercare_purple</item>
+        <item name="colorPrimaryVariant">@color/mothercare_purple_deep</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/mothercare_purple_light</item>
+        <item name="colorSecondaryVariant">@color/mothercare_purple</item>
+        <item name="colorOnSecondary">@color/text_primary</item>
+        <item name="colorSurface">@color/surface_card</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:colorBackground">@color/surface_bg</item>
+        <!-- Status bar colour matches app background -->
+        <item name="android:statusBarColor">#FAF6FC</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorControlActivated">@color/mothercare_purple</item>
+        <item name="colorControlHighlight">@color/button_ripple</item>
     </style>
 </resources>

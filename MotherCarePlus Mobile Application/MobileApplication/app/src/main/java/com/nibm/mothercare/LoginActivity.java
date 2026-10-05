@@ -40,7 +40,6 @@ public class LoginActivity extends AppCompatActivity {
 
         btnLogin.setOnClickListener(v -> loginUser());
 
-        // Mother accounts are created by Midwife/MOH, so public signup is disabled.
         txtSignUp.setOnClickListener(v -> Toast.makeText(
                 LoginActivity.this,
                 "Mother registration is done by Midwife/MOH",

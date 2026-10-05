@@ -5,8 +5,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
 
+    // Use http://10.0.2.2:8080/ for Android Emulator, or http://<YOUR_LOCAL_IP>:8080/ for physical device
     private static final String BASE_URL =
-            "http://10.38.141.186/MotherCarePlus/MotherCareAPI/";
+            "http://10.30.32.186:8080/";
 
     private static Retrofit retrofit;
 
@@ -14,9 +15,7 @@ public class RetrofitClient {
     }
 
     public static Retrofit getRetrofitInstance() {
-
         if (retrofit == null) {
-
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(
@@ -29,9 +28,6 @@ public class RetrofitClient {
     }
 
     public static ApiService getApiService() {
-
-        return getRetrofitInstance()
-                .create(ApiService.class);
+        return getRetrofitInstance().create(ApiService.class);
     }
-
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Legacy material defaults (kept for compat) -->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -8,8 +9,38 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <!-- MotherCare+ Design System -->
+    <!-- Primary brand purple (main accent) -->
+    <color name="mothercare_purple">#985AB5</color>
+    <!-- Deep purple (gradient end / dark text) -->
+    <color name="mothercare_purple_deep">#6B2C91</color>
+    <!-- Light purple tint (card backgrounds, icons) -->
+    <color name="mothercare_purple_light">#F3E8F7</color>
+    <!-- App background -->
+    <color name="surface_bg">#FAF6FC</color>
+    <!-- Card / dialog backgrounds -->
+    <color name="surface_card">#FFFFFF</color>
+    <!-- Primary text dark -->
+    <color name="text_primary">#3D3045</color>
+    <!-- Secondary / subtitle text -->
+    <color name="text_secondary">#756A7D</color>
+    <!-- Hint / muted text -->
+    <color name="text_hint">#A098A6</color>
+    <!-- Divider lines -->
+    <color name="divider_purple">#F0E6F5</color>
+    <!-- Input field border -->
+    <color name="input_border">#E7D6ED</color>
+
+    <!-- Semantic status colours -->
+    <color name="status_normal_text">#27AE60</color>
+    <color name="status_normal_bg">#E9F7EF</color>
+    <color name="status_high_risk_text">#E74C3C</color>
+    <color name="status_high_risk_bg">#FFEBEE</color>
+    <color name="status_info_text">#2980B9</color>
+
+    <!-- Get started / splash screens -->
     <color name="get_started_bg">#F7F4F2</color>
-    <color name="mothercare_purple">#B56BE8</color>
+    <!-- Legacy aliases -->
     <color name="title_black">#111111</color>
     <color name="subtitle_gray">#8A8583</color>
     <color name="button_ripple">#22B56BE8</color>

@@ -1,63 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FAF6FC">
+    android:background="#FAF6FC"
+    android:fitsSystemWindows="true">
 
-    <!-- TOP HEADER -->
+    <!-- TOP HEADER (CLEAN TOP PADDING, NO CLIPPING) -->
     <RelativeLayout
         android:id="@+id/topHeader"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="wrap_content"
         android:background="#FAF6FC"
-        android:paddingStart="22dp"
-        android:paddingEnd="22dp">
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="12dp">
 
         <LinearLayout
+            android:id="@+id/headerTextContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/btnNotification"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/txtGreeting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
-                android:text="Good Morning"
+                android:text="Welcome Back 👋"
                 android:textColor="#756A7D"
-                android:textSize="14sp" />
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/txtMotherName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="2dp"
                 android:text="Mother"
                 android:textColor="#3D3045"
                 android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Healthy Mother • Happy Baby 👶"
+                android:textColor="#985AB5"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
 
         <ImageButton
             android:id="@+id/btnNotification"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
+            android:layout_alignTop="@+id/headerTextContainer"
             android:background="@drawable/circle_background"
             android:contentDescription="Notifications"
-            android:padding="13dp"
+            android:padding="11dp"
             android:src="@drawable/ic_notifications"
             android:tint="#985AB5" />
 
     </RelativeLayout>
 
 
-    <!-- SCROLLABLE MIDDLE CONTENT -->
+    <!-- SCROLLABLE CONTENT -->
     <ScrollView
         android:id="@+id/scrollContent"
         android:layout_width="match_parent"
@@ -70,17 +83,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="20dp">
+            android:paddingBottom="24dp">
 
 
-            <!-- PREGNANCY CARD -->
+            <!-- PREGNANCY STATUS CARD -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/pregnancy_card_background"
-                android:elevation="4dp"
+                android:elevation="6dp"
                 android:orientation="vertical"
                 android:padding="20dp">
 
@@ -99,7 +112,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="My Pregnancy"
+                            android:text="Pregnancy Week Tracker"
                             android:textColor="#FFFFFF"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -108,16 +121,16 @@
                             android:id="@+id/txtTrimester"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="2nd Trimester"
+                            android:layout_marginTop="4dp"
+                            android:text="2nd Trimester • Normal Progress"
                             android:textColor="#F3E8F7"
-                            android:textSize="14sp" />
+                            android:textSize="13sp" />
 
                     </LinearLayout>
 
                     <ImageView
-                        android:layout_width="46dp"
-                        android:layout_height="46dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:contentDescription="Pregnancy"
                         android:src="@drawable/ic_pregnancy"
                         android:tint="#FFFFFF" />
@@ -129,21 +142,31 @@
                     android:id="@+id/txtWeeks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="24 Weeks"
+                    android:layout_marginTop="16dp"
+                    android:text="28 Weeks Pregnant"
                     android:textColor="#FFFFFF"
-                    android:textSize="28sp"
+                    android:textSize="26sp"
                     android:textStyle="bold" />
+
+                <!-- Baby Size indicator -->
+                <TextView
+                    android:id="@+id/txtBabySize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Baby Size: ~1.1 kg • Length ~37.6 cm (Eggplant 🍆)"
+                    android:textColor="#F3E8F7"
+                    android:textSize="12sp" />
 
 
                 <ProgressBar
                     android:id="@+id/pregnancyProgress"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="8dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="14dp"
                     android:max="40"
-                    android:progress="24"
+                    android:progress="28"
                     android:progressTint="#FFFFFF"
                     android:backgroundTint="#D7B6E1" />
 
@@ -158,7 +181,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Week 24"
+                        android:text="Week 28 of 40"
                         android:textColor="#F3E8F7"
                         android:textSize="12sp" />
 
@@ -168,6 +191,56 @@
                         android:layout_height="wrap_content"
                         android:text="Due: 20 Dec 2026"
                         android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- TODAY'S TIP CARD -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/white_card_background"
+                android:elevation="3dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="14dp">
+
+                <ImageView
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/circle_background"
+                    android:contentDescription="Tip"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_food"
+                    android:tint="#985AB5" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Today's Health Tip 💡"
+                        android:textColor="#985AB5"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Eat a variety of nutritious foods for you and your baby's healthy growth."
+                        android:textColor="#756A7D"
                         android:textSize="12sp" />
 
                 </LinearLayout>
@@ -175,17 +248,269 @@
             </LinearLayout>
 
 
-            <!-- NEXT APPOINTMENT -->
+            <!-- DAILY HEALTH TRACKER OVERVIEW -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="25dp"
-                android:text="Next Appointment"
+                android:layout_marginTop="22dp"
+                android:text="Daily Health Trackers"
                 android:textColor="#3D3045"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+
+            <!-- TRACKERS ROW 1 (Water & Kicks) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal">
+
+                <!-- WATER INTAKE -->
+                <LinearLayout
+                    android:id="@+id/btnWaterIntake"
+                    android:layout_width="0dp"
+                    android:layout_height="115dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/white_card_background"
+                    android:elevation="3dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:contentDescription="Water Intake"
+                        android:src="@drawable/ic_water"
+                        android:tint="#3498DB" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Water Intake"
+                        android:textColor="#756A7D"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/txtWaterIntake"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="1.8L / 2.5L"
+                        android:textColor="#3D3045"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="+ Tap to log"
+                        android:textColor="#3498DB"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+
+                <!-- KICK COUNTER -->
+                <LinearLayout
+                    android:id="@+id/btnKickCounter"
+                    android:layout_width="0dp"
+                    android:layout_height="115dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/white_card_background"
+                    android:elevation="3dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:contentDescription="Kick Counter"
+                        android:src="@drawable/ic_kick"
+                        android:tint="#E91E63" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Kick Counter"
+                        android:textColor="#756A7D"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/txtKickCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="12 Kicks"
+                        android:textColor="#3D3045"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="+ Log Kick"
+                        android:textColor="#E91E63"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!-- TRACKERS ROW 2 (Blood Pressure, Weight, Blood Sugar) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal">
+
+                <!-- BLOOD PRESSURE -->
+                <LinearLayout
+                    android:id="@+id/bloodPressureCard"
+                    android:layout_width="0dp"
+                    android:layout_height="110dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/white_card_background"
+                    android:elevation="3dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:contentDescription="Blood pressure"
+                        android:src="@drawable/ic_heart"
+                        android:tint="#985AB5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Blood Pressure"
+                        android:textColor="#756A7D"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/txtBloodPressure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="120/80"
+                        android:textColor="#3D3045"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <!-- WEIGHT -->
+                <LinearLayout
+                    android:id="@+id/weightCard"
+                    android:layout_width="0dp"
+                    android:layout_height="110dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/white_card_background"
+                    android:elevation="3dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:contentDescription="Weight"
+                        android:src="@drawable/ic_weight"
+                        android:tint="#985AB5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Weight"
+                        android:textColor="#756A7D"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/txtWeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="64 kg"
+                        android:textColor="#3D3045"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <!-- BLOOD SUGAR -->
+                <LinearLayout
+                    android:id="@+id/btnBloodSugar"
+                    android:layout_width="0dp"
+                    android:layout_height="110dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/white_card_background"
+                    android:elevation="3dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:contentDescription="Blood Sugar"
+                        android:src="@drawable/ic_health"
+                        android:tint="#27AE60" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Blood Sugar"
+                        android:textColor="#756A7D"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/txtBloodSugar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="95 mg/dL"
+                        android:textColor="#3D3045"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!-- NEXT APPOINTMENT CARD -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="22dp"
+                android:text="Next Appointment"
+                android:textColor="#3D3045"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/appointmentCard"
@@ -220,7 +545,7 @@
                         android:id="@+id/txtDoctorName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Dr. Sarah Fernando"
+                        android:text="Dr. Sarah Fernando (MOH Clinic)"
                         android:textColor="#3D3045"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -229,8 +554,8 @@
                         android:id="@+id/txtAppointmentDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="12 September 2026 • 10:30 AM"
+                        android:layout_marginTop="4dp"
+                        android:text="12 October 2026 • 10:30 AM"
                         android:textColor="#756A7D"
                         android:textSize="13sp" />
 
@@ -246,18 +571,19 @@
             </LinearLayout>
 
 
-            <!-- HEALTH OVERVIEW -->
+            <!-- COMPLETE PREGNANCY CARE / QUICK ACCESS -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="25dp"
-                android:text="Health Overview"
+                android:layout_marginTop="22dp"
+                android:text="Complete Pregnancy Services"
                 android:textColor="#3D3045"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
 
+            <!-- SERVICES GRID ROW 1 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -265,128 +591,23 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="20dp"
                 android:orientation="horizontal">
-
-
-                <!-- BLOOD PRESSURE -->
-                <LinearLayout
-                    android:id="@+id/bloodPressureCard"
-                    android:layout_width="0dp"
-                    android:layout_height="125dp"
-                    android:layout_marginEnd="7dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/white_card_background"
-                    android:elevation="3dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:contentDescription="Blood pressure"
-                        android:src="@drawable/ic_heart"
-                        android:tint="#985AB5" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Blood Pressure"
-                        android:textColor="#756A7D"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/txtBloodPressure"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="120/80"
-                        android:textColor="#3D3045"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-
-                <!-- WEIGHT -->
-                <LinearLayout
-                    android:id="@+id/weightCard"
-                    android:layout_width="0dp"
-                    android:layout_height="125dp"
-                    android:layout_marginStart="7dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/white_card_background"
-                    android:elevation="3dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:contentDescription="Weight"
-                        android:src="@drawable/ic_weight"
-                        android:tint="#985AB5" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Weight"
-                        android:textColor="#756A7D"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/txtWeight"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="64 kg"
-                        android:textColor="#3D3045"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-
-            <!-- QUICK ACCESS -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="25dp"
-                android:text="Quick Access"
-                android:textColor="#3D3045"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="20dp"
-                android:orientation="horizontal">
-
 
                 <!-- MEDICATION -->
                 <LinearLayout
                     android:id="@+id/btnMedication"
                     android:layout_width="0dp"
-                    android:layout_height="105dp"
+                    android:layout_height="100dp"
                     android:layout_marginEnd="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/quick_action_background"
+                    android:elevation="2dp"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="10dp">
+                    android:padding="8dp">
 
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
                         android:contentDescription="Medication"
                         android:src="@drawable/ic_medication"
                         android:tint="#985AB5" />
@@ -394,30 +615,31 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="6dp"
                         android:text="Medication"
                         android:textColor="#4A3A50"
-                        android:textSize="12sp" />
+                        android:textSize="11sp"
+                        android:gravity="center" />
 
                 </LinearLayout>
-
 
                 <!-- VACCINATION -->
                 <LinearLayout
                     android:id="@+id/btnVaccination"
                     android:layout_width="0dp"
-                    android:layout_height="105dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
                     android:layout_weight="1"
                     android:background="@drawable/quick_action_background"
+                    android:elevation="2dp"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="10dp">
+                    android:padding="8dp">
 
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
                         android:contentDescription="Vaccination"
                         android:src="@drawable/ic_vaccine"
                         android:tint="#985AB5" />
@@ -425,62 +647,170 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Vaccination"
+                        android:layout_marginTop="6dp"
+                        android:text="Vaccines"
                         android:textColor="#4A3A50"
-                        android:textSize="12sp" />
+                        android:textSize="11sp"
+                        android:gravity="center" />
 
                 </LinearLayout>
-
 
                 <!-- REPORTS -->
                 <LinearLayout
                     android:id="@+id/btnReports"
                     android:layout_width="0dp"
-                    android:layout_height="105dp"
+                    android:layout_height="100dp"
                     android:layout_marginStart="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/quick_action_background"
+                    android:elevation="2dp"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="10dp">
+                    android:padding="8dp">
 
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:contentDescription="Medical reports"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:contentDescription="Reports"
                         android:src="@drawable/ic_report"
                         android:tint="#985AB5" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="6dp"
                         android:text="Reports"
                         android:textColor="#4A3A50"
-                        android:textSize="12sp" />
+                        android:textSize="11sp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- SERVICES GRID ROW 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal">
+
+                <!-- CHAT WITH DOCTOR -->
+                <LinearLayout
+                    android:id="@+id/btnDoctorChat"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/quick_action_background"
+                    android:elevation="2dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:contentDescription="Doctor Chat"
+                        android:src="@drawable/ic_chat"
+                        android:tint="#985AB5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Doctor Chat"
+                        android:textColor="#4A3A50"
+                        android:textSize="11sp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <!-- CONTRACTION TIMER -->
+                <LinearLayout
+                    android:id="@+id/btnContractionTimer"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/quick_action_background"
+                    android:elevation="2dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:contentDescription="Contraction Timer"
+                        android:src="@drawable/ic_timer"
+                        android:tint="#985AB5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Contractions"
+                        android:textColor="#4A3A50"
+                        android:textSize="11sp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <!-- NEARBY HOSPITALS -->
+                <LinearLayout
+                    android:id="@+id/btnNearbyHospitals"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/quick_action_background"
+                    android:elevation="2dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:contentDescription="Hospitals"
+                        android:src="@drawable/ic_hospital"
+                        android:tint="#985AB5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Hospitals"
+                        android:textColor="#4A3A50"
+                        android:textSize="11sp"
+                        android:gravity="center" />
 
                 </LinearLayout>
 
             </LinearLayout>
 
 
-            <!-- EMERGENCY -->
+            <!-- EMERGENCY SOS ASSISTANCE -->
             <LinearLayout
                 android:id="@+id/btnEmergency"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="72dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/emergency_background"
+                android:elevation="4dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:padding="15dp">
 
                 <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
                     android:contentDescription="Emergency"
                     android:src="@drawable/ic_emergency"
                     android:tint="#FFFFFF" />
@@ -495,7 +825,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Emergency Assistance"
+                        android:text="Emergency SOS Alert 🚨"
                         android:textColor="#FFFFFF"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -503,16 +833,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:text="Get help when you need it"
+                        android:layout_marginTop="2dp"
+                        android:text="Tap for immediate emergency &amp; ambulance support"
                         android:textColor="#FFF1F1"
-                        android:textSize="12sp" />
+                        android:textSize="11sp" />
 
                 </LinearLayout>
 
                 <ImageView
-                    android:layout_width="23dp"
-                    android:layout_height="23dp"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
                     android:contentDescription="Emergency"
                     android:src="@drawable/ic_arrow_right"
                     android:tint="#FFFFFF" />
@@ -528,12 +858,11 @@
     <LinearLayout
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="65dp"
         android:background="#FFFFFF"
         android:elevation="8dp"
         android:gravity="center"
         android:orientation="horizontal">
-
 
         <!-- HOME -->
         <LinearLayout
@@ -545,8 +874,8 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:contentDescription="Home"
                 android:src="@drawable/ic_home"
                 android:tint="#985AB5" />
@@ -554,13 +883,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="3dp"
                 android:text="Home"
                 android:textColor="#985AB5"
-                android:textSize="11sp" />
+                android:textSize="11sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
-
 
         <!-- APPOINTMENTS -->
         <LinearLayout
@@ -572,8 +901,8 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:contentDescription="Appointments"
                 android:src="@drawable/ic_calendar"
                 android:tint="#8E8294" />
@@ -581,15 +910,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Appointments"
+                android:layout_marginTop="3dp"
+                android:text="Clinic"
                 android:textColor="#8E8294"
                 android:textSize="11sp" />
 
         </LinearLayout>
 
-
-        <!-- HEALTH -->
+        <!-- HEALTH TRACKER -->
         <LinearLayout
             android:id="@+id/navHealth"
             android:layout_width="0dp"
@@ -599,8 +927,8 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:contentDescription="Health"
                 android:src="@drawable/ic_health"
                 android:tint="#8E8294" />
@@ -608,13 +936,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Health"
+                android:layout_marginTop="3dp"
+                android:text="Tracker"
                 android:textColor="#8E8294"
                 android:textSize="11sp" />
 
         </LinearLayout>
-
 
         <!-- PROFILE -->
         <LinearLayout
@@ -626,8 +953,8 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:contentDescription="Profile"
                 android:src="@drawable/ic_person"
                 android:tint="#8E8294" />
@@ -635,7 +962,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="3dp"
                 android:text="Profile"
                 android:textColor="#8E8294"
                 android:textSize="11sp" />
